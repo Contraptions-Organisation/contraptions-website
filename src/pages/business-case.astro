@@ -1,0 +1,287 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const stats = [
+	{ value: '120+', label: 'Student inventions documented' },
+	{ value: '92%', label: 'Report stronger creative confidence' },
+	{ value: '3', label: 'Recurring revenue tracks' },
+];
+
+const model = [
+	{
+		title: 'Launch Intensive',
+		cadence: '2-week sprint · one-time',
+		summary: 'A paid onboarding sprint that gets a school or museum from zero to a working lab, staff trained, and a demo day delivered.',
+	},
+	{
+		title: 'Studio Residency',
+		cadence: '6–12 week arc · per cohort',
+		summary: 'Embedded co-teaching engagement. Recurring revenue per cohort, with documentation and evidence-of-learning built in as a retention hook.',
+	},
+	{
+		title: 'Momentum Membership',
+		cadence: 'Quarterly · subscription',
+		summary: 'Ongoing office hours, refresh kits, and video support between big launches — the recurring-revenue backbone of the business.',
+	},
+];
+---
+
+<Layout
+	title="Business Case | Rebooted Creative Lab"
+	description="Why Rebooted Creative Lab exists, how the model works, and the traction so far."
+>
+	<main class="site">
+		<section class="hero" id="hero">
+			<div class="hero__content">
+				<p class="eyebrow">Business case</p>
+				<h1>Creative robotics education, sold as a repeatable service — not a one-off kit.</h1>
+				<p class="lede">
+					Schools, museums, and makerspaces don't need more electronics kits gathering dust. They need a
+					partner who plans the curriculum, trains the facilitators, and proves the learning happened.
+					Rebooted Creative Lab packages OttoNinja robotics, wearables, and sensor kits into a service
+					with recurring revenue at every stage: launch, residency, and ongoing membership.
+				</p>
+				<div class="hero__cta">
+					<a class="solid" href="#model">See the model</a>
+					<a class="ghost" href="#ask">Skip to the ask</a>
+				</div>
+				<div class="hero__stats">
+					{stats.map((stat) => (
+						<div>
+							<strong>{stat.value}</strong>
+							<span>{stat.label}</span>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="problem">
+			<header>
+				<p class="eyebrow">The problem</p>
+				<h2>Kits get bought once. Programs need to run every year.</h2>
+			</header>
+			<div class="problem__grid">
+				<div>
+					<h3>Hardware alone doesn't stick</h3>
+					<p>
+						A box of parts without a curriculum, a trained facilitator, and a reason to keep using it
+						ends up in a cupboard after one semester. That's a one-time sale, not a business.
+					</p>
+				</div>
+				<div>
+					<h3>Staff turn over, budgets reset</h3>
+					<p>
+						Schools and museums lose facilitators and need re-onboarding constantly. Whoever solves
+						that continuity problem captures the recurring spend, not just the initial purchase.
+					</p>
+				</div>
+				<div>
+					<h3>Nobody proves the impact</h3>
+					<p>
+						Without documented evidence of learning, programs can't justify renewal to boards or
+						funders. Field-note style documentation is what turns a pilot into a multi-year contract.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="model" id="model">
+			<header>
+				<p class="eyebrow">The model</p>
+				<h2>Three tracks, each one a revenue stage.</h2>
+				<p>The same tracks already live on the site today — this is how they map to the business.</p>
+			</header>
+			<div class="model-grid">
+				{model.map((track) => (
+					<article>
+						<h3>{track.title}</h3>
+						<span class="model-card__cadence">{track.cadence}</span>
+						<p>{track.summary}</p>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<section class="ask" id="ask">
+			<div>
+				<p class="eyebrow">The ask</p>
+				<h2>We're looking for partner schools, museums, and early backers.</h2>
+				<p>
+					If you run a makerspace, a museum education program, or you're evaluating Rebooted Creative
+					Lab as an investment or partnership, we'd like to talk. Share your goals and we'll follow up
+					with a proposal tailored to your context.
+				</p>
+			</div>
+			<a class="solid" href="mailto:hello@rebooted.education">Start a conversation</a>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	.site {
+		display: flex;
+		flex-direction: column;
+		gap: 5rem;
+		padding: clamp(1.75rem, 3vw, 3rem) clamp(1rem, 5vw, 5rem) 4rem;
+	}
+
+	section {
+		background: rgba(255, 255, 255, 0.07);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		border-radius: 28px;
+		padding: clamp(1.75rem, 2vw, 2.5rem);
+		box-shadow: 0 30px 80px rgba(15, 29, 49, 0.18);
+		scroll-margin-top: 140px;
+	}
+
+	.hero {
+		background: radial-gradient(circle at 15% 30%, rgba(255, 255, 255, 0.25), transparent 55%),
+			linear-gradient(125deg, rgba(255, 165, 117, 0.4), rgba(93, 224, 182, 0.25));
+	}
+
+	.hero__content h1 {
+		font-size: clamp(2.2rem, 4vw, 3rem);
+		line-height: 1.15;
+		margin: 0.35rem 0 1rem;
+	}
+
+	.eyebrow {
+		font-size: 0.85rem;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: var(--text-soft);
+		margin: 0;
+	}
+
+	.lede {
+		font-size: 1.1rem;
+		max-width: 640px;
+		color: var(--text-muted);
+	}
+
+	.hero__cta {
+		margin: 1.5rem 0 1.75rem;
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.solid,
+	.ghost {
+		border-radius: 999px;
+		padding: 0.8rem 1.5rem;
+		text-decoration: none;
+		font-weight: 600;
+		transition: transform 220ms ease, box-shadow 220ms ease;
+	}
+
+	.solid {
+		background: linear-gradient(120deg, #f76b1c, #7f5dff);
+		color: #0f1d31;
+		box-shadow: 0 12px 30px rgba(247, 107, 28, 0.35);
+	}
+
+	.solid:hover,
+	.ghost:hover {
+		transform: translateY(-2px) scale(1.01);
+	}
+
+	.ghost {
+		border: 1px solid rgba(255, 255, 255, 0.35);
+		color: white;
+	}
+
+	.hero__stats {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		gap: 1rem;
+	}
+
+	.hero__stats strong {
+		display: block;
+		font-size: 1.75rem;
+		color: white;
+	}
+
+	.hero__stats span {
+		color: var(--text-soft);
+		font-size: 0.92rem;
+	}
+
+	.problem header,
+	.model header {
+		margin-bottom: 1.5rem;
+	}
+
+	.problem header h2,
+	.model header h2 {
+		max-width: 640px;
+	}
+
+	.problem__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.problem__grid h3 {
+		margin: 0 0 0.5rem;
+	}
+
+	.problem__grid p {
+		color: var(--text-muted);
+		margin: 0;
+	}
+
+	.model-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.model-grid article {
+		background: rgba(10, 15, 32, 0.75);
+		border-radius: 24px;
+		padding: 1.5rem;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+	}
+
+	.model-grid h3 {
+		margin: 0 0 0.35rem;
+	}
+
+	.model-card__cadence {
+		display: inline-block;
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--text-soft);
+		margin-bottom: 0.75rem;
+	}
+
+	.model-grid p {
+		color: var(--text-muted);
+		margin: 0;
+	}
+
+	.ask {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5rem;
+		background: linear-gradient(135deg, rgba(127, 93, 255, 0.35), rgba(247, 107, 28, 0.25));
+	}
+
+	.ask h2 {
+		max-width: 560px;
+		margin: 0.35rem 0 0.75rem;
+	}
+
+	.ask p {
+		max-width: 560px;
+		color: var(--text-muted);
+		margin: 0;
+	}
+</style>
